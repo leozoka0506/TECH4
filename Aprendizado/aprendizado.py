@@ -1,10 +1,26 @@
-# Aqui criamos uma lista, com varios dicionarios, cada dicionario começa com { e termina com } e cada dicionario tem 3 chaves, id, nota e comentario.
-avaliacoes = [
-    {"id": "av_001", "nota": 2, "comentario": "  Entrega atrasada.  "},
-    {"id": "av_002", "nota": 1, "comentario": None},
-    {"id": "av_003", "nota": 3, "comentario": "   "},
-    {"id": "av_004", "nota": 5, "comentario": "Produto excelente!"}
-]
+import json
+from pathlib import Path
+
+caminho = Path(__file__).parent / "avaliacoes.json"
+
+try:
+    with caminho.open("r", encoding="utf-8") as arquivo:
+        avaliacoes = json.load(arquivo)
+except FileNotFoundError:
+    print(f"Arquivo {caminho} não encontrado.")
+    raise SystemExit(1)
+except json.JSONDecodeError as erro:
+    print("O arquivo JSON está corrompido ou mal formatado.")
+    print ("Erro na linha", erro.lineno)
+    print ("Erro na coluna", erro.colno)
+    print ("Mensagem de erro:", erro.msg)
+    raise SystemExit(1)
+
+print(type(avaliacoes))
+print(type(avaliacoes[0]))
+print(avaliacoes[1]["comentario"])
+
+
 # Aqui criamos uma função que recebe o nome de limpar_comentario
 def limpar_comentario(comentario):
     # a função verifica se o comentario é None, se for None, retorna uma string vazia
@@ -64,10 +80,30 @@ def buscar_avaliacoes(avaliacoes, termo):
 
     return resultados
 
+caminho_saida = Path(__file__).parent / "avaliacoes_validas.json"
 
-encontradas = buscar_avaliacoes(avaliacoes_validas, "entrega")
+with caminho_saida.open("w", encoding="utf-8") as arquivo_saida:
+    json.dump(avaliacoes_validas, 
+              arquivo_saida, 
+              ensure_ascii=False, 
+              indent=4)
 
-for avaliacao in encontradas:
-    print(avaliacao["id"], avaliacao["comentario"])
+while True:
+    termo_digitado = input("Digite o termo a ser buscado: ")
+    termo_digitado = termo_digitado.strip().lower()
 
-print("Quantidade encontrada:", len(encontradas))
+    if termo_digitado.lower() == "sair":
+        break
+
+    if termo_digitado == "":
+        print("Por favor, digite um termo válido.")
+        continue
+
+    encontradas = buscar_avaliacoes(avaliacoes_validas, termo_digitado)
+
+
+    if len(encontradas) == 0:
+        print("Nenhuma avaliação encontrada para esse termo.")
+    else:
+        for avaliacao in encontradas:
+            print(avaliacao["id"], avaliacao["comentario"])

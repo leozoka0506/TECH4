@@ -1,0 +1,17 @@
+[
+    {
+        "id": "av_001",
+        "nota": 2,
+        "comentario": "Entrega atrasada."
+    },
+    {
+        "id": "av_004",
+        "nota": 5,
+        "comentario": "Produto excelente!"
+    },
+    {
+        "id": "av_005",
+        "nota": 1,
+        "comentario": "O pedido chegou depois do prazo."
+    }
+]
