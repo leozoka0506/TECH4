@@ -1,0 +1,12 @@
+*
+!requirements-prod-lock.txt
+!escuta/
+!escuta/**
+!voice_customer/
+!voice_customer/**
+!web/
+!web/**
+!scripts/
+!scripts/**
+**/__pycache__
+**/*.pyc

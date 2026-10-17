@@ -1,0 +1,15 @@
+.venv/
+.runtime/
+__pycache__/
+*.pyc
+.env
+.env.*
+!.env.example
+.pytest_cache/
+data/backups/
+*.log
+data/raw/*
+data/index/*
+data/ollama-release.json
+!data/raw/.gitkeep
+!data/index/.gitkeep

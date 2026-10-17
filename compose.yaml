@@ -1,0 +1,52 @@
+services:
+  db:
+    image: pgvector/pgvector:0.8.6-pg16
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: escuta
+      POSTGRES_PASSWORD: ${DB_ADMIN_PASSWORD:?Execute scripts/setup_env.py}
+      ESCUTA_PASSWORD: ${DB_PASSWORD:?Execute scripts/setup_env.py}
+    ports:
+      - "127.0.0.1:5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./infra/init-db.sh:/docker-entrypoint-initdb.d/01-escuta.sh:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d escuta"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+  app:
+    build: .
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: postgresql://escuta:${DB_PASSWORD}@db:5432/escuta
+      AI_PROVIDER: ollama
+      OLLAMA_URL: http://host.docker.internal:11434
+      EMBEDDING_MODEL: embeddinggemma:300m-qat-q4_0
+      GENERATION_MODEL: qwen2.5:3b
+      APP_ENV: production
+      APP_TOKEN: ${APP_TOKEN:?Execute scripts/setup_env.py}
+      VERIFY_CLAIMS: "true"
+      RESPONSE_MODE: extractive
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    ports:
+      - "127.0.0.1:8501:8501"
+    volumes:
+      - ./data/raw:/app/data/raw:ro
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8501/health/live')"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+    read_only: true
+    tmpfs:
+      - /tmp
+    security_opt:
+      - no-new-privileges:true
+volumes:
+  postgres_data:

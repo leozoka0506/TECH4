@@ -1,0 +1,84 @@
+{
+  "python": "3.12.14",
+  "postgresql": "PostgreSQL 16.15, compiled by Visual C++ build 1944, 64-bit",
+  "pgvector": "0.8.6",
+  "packages": {
+    "numpy": "2.3.5",
+    "psycopg": "3.3.6",
+    "fastapi": "0.142.4",
+    "uvicorn": "0.54.0"
+  },
+  "models": [
+    {
+      "name": "qwen2.5:3b",
+      "model": "qwen2.5:3b",
+      "modified_at": "2026-10-07T20:31:03.226064-03:00",
+      "size": 1929912432,
+      "digest": "357c53fb659c5076de1d65ccb0b397446227b71a42be9d1603d46168015c9e4b",
+      "details": {
+        "parent_model": "",
+        "format": "gguf",
+        "family": "qwen2",
+        "families": [
+          "qwen2"
+        ],
+        "parameter_size": "3.1B",
+        "quantization_level": "Q4_K_M",
+        "context_length": 32768,
+        "embedding_length": 2048,
+        "runner": "ggml"
+      },
+      "capabilities": [
+        "completion",
+        "tools"
+      ]
+    },
+    {
+      "name": "embeddinggemma:300m-qat-q4_0",
+      "model": "embeddinggemma:300m-qat-q4_0",
+      "modified_at": "2026-10-07T15:29:22.8379978-03:00",
+      "size": 238539501,
+      "digest": "38b9a916044f4625bf74b7bd75dffcafa40679e2e7242a41839d4135d6f32765",
+      "details": {
+        "parent_model": "embeddinggemma:300m-qat-q4_0",
+        "format": "gguf",
+        "family": "gemma3",
+        "families": [
+          "gemma3"
+        ],
+        "parameter_size": "307.58M",
+        "quantization_level": "Q4_0",
+        "context_length": 2048,
+        "embedding_length": 768,
+        "runner": "ggml"
+      },
+      "capabilities": [
+        "embedding"
+      ]
+    },
+    {
+      "name": "embeddinggemma:300m-qat-q4_0",
+      "model": "embeddinggemma:300m-qat-q4_0",
+      "modified_at": "2026-10-07T15:29:22.8379978-03:00",
+      "size": 238539445,
+      "digest": "399ab5383ae50e83f0663a2663d5395f113259dab8586ff90a759dae59ea1e43",
+      "details": {
+        "parent_model": "",
+        "format": "gguf",
+        "family": "gemma-embedding",
+        "families": [
+          "gemma-embedding"
+        ],
+        "parameter_size": "307.58M",
+        "quantization_level": "Q4_0",
+        "context_length": 2048,
+        "embedding_length": 768,
+        "runner": "llamacpp"
+      },
+      "capabilities": [
+        "embedding"
+      ]
+    }
+  ],
+  "response_mode": "extractive"
+}
