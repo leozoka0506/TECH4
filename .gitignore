@@ -13,3 +13,11 @@ data/index/*
 data/ollama-release.json
 !data/raw/.gitkeep
 !data/index/.gitkeep
+
+# Materiais de apresentação e enunciado permanecem locais.
+entregas/apresentacao/
+docs/ROTEIRO_VIDEO.md
+*.pptx
+*.ppt
+*.odp
+*Tech Challenge*.pdf

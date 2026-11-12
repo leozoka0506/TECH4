@@ -15,7 +15,7 @@ flowchart LR
     E --> F[Busca vetorial + textual]
     D --> F
     F --> G[Contexto identificado]
-    G --> H[Qwen local: síntese]
+    G --> H[Qwen local: seleção de evidências]
     H --> I[Validação de referências + verificação]
     I --> J[Resposta com evidências ou abstenção]
 ```
@@ -112,10 +112,13 @@ O avaliador consulta o banco e os modelos **reais**, grava nove casos de aceita�
 - [Arquitetura, preparação e decisões](docs/ARQUITETURA.md)
 - [Operação, backup, recuperação e futura nuvem](docs/OPERACAO.md)
 - [Rastreio de todos os requisitos e adicionais](docs/REQUISITOS.md)
-- [Roteiro de vídeo de até sete minutos](docs/ROTEIRO_VIDEO.md)
 - [Continuação dos estudos](docs/ESTUDOS.md)
 
 Estrutura principal: `escuta/` contém API, ingestão, banco e RAG; `web/`, a interface; `scripts/`, utilitários; `tests/`, verificações. `voice_customer/` preserva o protótipo NumPy e fornece funções reutilizadas de limpeza/cliente local/validação. `Aprendizado/` preserva os exercícios do aluno no repositório.
+
+A interface atual inicia com `python -m escuta serve`. O comando antigo `python -m voice_customer serve` foi desativado e informa o comando correto.
+
+Slides, roteiro de apresentação e PDF do enunciado ficam fora deste repositório. A documentação técnica necessária para reproduzir a aplicação permanece publicada.
 
 O projeto utiliza dados públicos históricos; respeite a licença da base e as licenças dos modelos. Dados, modelos, backups, senhas e ambientes virtuais não são versionados. O modo padrão não exige chave nem faz chamadas pagas. Um adaptador experimental de API permanece desativado e não foi validado com consumo pago.
 

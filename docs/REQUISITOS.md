@@ -17,7 +17,7 @@
 | Justificativa dos metadados | `ARQUITETURA.md`, seção de recuperação |
 | Código público e reprodução | README, dependências fixadas, Compose, scripts e CI |
 | Exemplos de perguntas e respostas | `scripts/evaluate_professional.py`, `evaluation_postgres.json` |
-| Vídeo de até 7 minutos | Roteiro preparado; gravação e envio pelo aluno pendentes |
+| Vídeo de até 7 minutos | Material de apresentação mantido separadamente; gravação e envio pelo aluno pendentes |
 | Bônus de 10 pontos Databricks | Depende da conclusão pessoal da trilha Generative AI Engineering Pathway e comprovante; pendente |
 
 Os cinco adicionais técnicos foram implementados. O bônus Databricks é uma formação complementar, não uma exigência de hospedar a aplicação na plataforma. Não marcar vídeo ou trilha como concluídos sem os respectivos entregáveis.

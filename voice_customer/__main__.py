@@ -13,7 +13,7 @@ def main():
     b.add_argument("--csv", default=str(RAW))
     b.add_argument("--index", default=str(INDEX))
     b.add_argument("--limit", type=int, default=0, help="0: corpus completo; >0: amostra aleatória com seed 42")
-    s = sub.add_parser("serve", help="Abre servidor web local")
+    s = sub.add_parser("serve", help="Desativado: use python -m escuta serve")
     s.add_argument("--port", type=int, default=8501)
     s.add_argument("--index", default=str(INDEX))
     a = sub.add_parser("ask", help="Pergunta por linha de comando")
@@ -28,8 +28,7 @@ def main():
                 parser.error("--limit deve ser zero ou positivo")
             print(json.dumps(build(args.csv, args.index, Ollama(), args.limit), indent=2, ensure_ascii=False))
         elif args.command == "serve":
-            from .server import serve
-            serve(args.port, args.index)
+            parser.error("O servidor do protótipo foi desativado. Use: python -m escuta serve")
         else:
             index = Index(args.index)
             model = Ollama(embedding_model=index.metadata["embedding_model"])
