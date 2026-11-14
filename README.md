@@ -114,7 +114,7 @@ O avaliador consulta o banco e os modelos **reais**, grava nove casos de aceita�
 - [Rastreio de todos os requisitos e adicionais](docs/REQUISITOS.md)
 - [Continuação dos estudos](docs/ESTUDOS.md)
 
-Estrutura principal: `escuta/` contém API, ingestão, banco e RAG; `web/`, a interface; `scripts/`, utilitários; `tests/`, verificações. `voice_customer/` preserva o protótipo NumPy e fornece funções reutilizadas de limpeza/cliente local/validação. `Aprendizado/` preserva os exercícios do aluno no repositório.
+Estrutura principal: `escuta/` contém API, ingestão, banco e RAG; `web/`, a interface; `scripts/`, utilitários; `tests/`, verificações. `voice_customer/` preserva o protótipo NumPy e fornece funções reutilizadas de limpeza/cliente local/validação. Os exercícios introdutórios de Python são mantidos separadamente, fora do repositório da aplicação.
 
 A interface atual inicia com `python -m escuta serve`. O comando antigo `python -m voice_customer serve` foi desativado e informa o comando correto.
 
