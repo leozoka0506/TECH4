@@ -1,2 +1,0 @@
-# Versão utilizada na validação local (Python 3.12).
-numpy==2.3.5

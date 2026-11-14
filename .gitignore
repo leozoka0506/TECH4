@@ -22,3 +22,11 @@ docs/ROTEIRO_VIDEO.md
 *.ppt
 *.odp
 *Tech Challenge*.pdf
+
+# Materiais locais de estudo e artefatos substituídos.
+docs/ESTUDOS.md
+docs/PUBLICACAO.md
+docs/evaluation_results.json
+scripts/evaluate.py
+requirements-lock.txt
+voice_customer/__main__.py

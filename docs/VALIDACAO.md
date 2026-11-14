@@ -14,7 +14,7 @@ Os nove casos de aceitação verificam resultado esperado, filtros e transcriç�
 
 Por isso, o modo padrão passou a ser `extractive`: Qwen seleciona referências relevantes e o código apresenta o texto original dessas referências. A saída continua dependendo da recuperação e da seleção da IA, mas não exibe as paráfrases não verificadas. `summary` permanece uma opção experimental, nunca recomendada como equivalente em confiabilidade.
 
-O arquivo `evaluation_postgres.json` registra a última execução do avaliador, com coleção, filtros, referências, modelos, modo da resposta e duração. `evaluation_results.json` registra o protótipo NumPy anterior e não é evidência de validação da versão PostgreSQL. Os casos foram usados no desenvolvimento; não são um conjunto independente.
+O arquivo `evaluation_postgres.json` registra a última execução do avaliador, com coleção, filtros, referências, modelos, modo da resposta e duração. Os casos foram usados no desenvolvimento; não são um conjunto independente.
 
 ## O que ainda precisa de avaliação para uso real
 

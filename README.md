@@ -112,14 +112,13 @@ O avaliador consulta o banco e os modelos **reais**, grava nove casos de aceita�
 - [Arquitetura, preparação e decisões](docs/ARQUITETURA.md)
 - [Operação, backup, recuperação e futura nuvem](docs/OPERACAO.md)
 - [Rastreio de todos os requisitos e adicionais](docs/REQUISITOS.md)
-- [Continuação dos estudos](docs/ESTUDOS.md)
 
-Estrutura principal: `escuta/` contém API, ingestão, banco e RAG; `web/`, a interface; `scripts/`, utilitários; `tests/`, verificações. `voice_customer/` preserva o protótipo NumPy e fornece funções reutilizadas de limpeza/cliente local/validação. Os exercícios introdutórios de Python são mantidos separadamente, fora do repositório da aplicação.
+Estrutura principal: `escuta/` contém API, ingestão, banco e RAG; `web/`, a interface; `scripts/`, utilitários; `tests/`, verificações. `voice_customer/` contém funções compartilhadas usadas pela aplicação e pelos testes: limpeza de dados, cliente Ollama, validação de referências e leitura de índices NumPy para reaproveitar embeddings. Essa pasta é necessária ao funcionamento atual. Os exercícios introdutórios de Python são mantidos separadamente, fora do repositório da aplicação.
 
-A interface atual inicia com `python -m escuta serve`. O comando antigo `python -m voice_customer serve` foi desativado e informa o comando correto.
+A interface inicia com `python -m escuta serve`.
 
 Slides, roteiro de apresentação e PDF do enunciado ficam fora deste repositório. A documentação técnica necessária para reproduzir a aplicação permanece publicada.
 
 O projeto utiliza dados públicos históricos; respeite a licença da base e as licenças dos modelos. Dados, modelos, backups, senhas e ambientes virtuais não são versionados. O modo padrão não exige chave nem faz chamadas pagas. Um adaptador experimental de API permanece desativado e não foi validado com consumo pago.
 
-**Entrega:** repositório [leozoka0506/TECH4](https://github.com/leozoka0506/TECH4). O vídeo precisa ser gravado e seu link incluído na entrega. O bônus de dez pontos da Databricks depende da conclusão da trilha pelo estudante e do respectivo comprovante; não é concedido por usar Databricks no código.
+**Entrega:** repositório [leozoka0506/TECH4](https://github.com/leozoka0506/TECH4). O vídeo de apresentação é um entregável separado: inclua seu link na submissão acadêmica. O bônus de dez pontos da Databricks depende da conclusão da trilha pelo estudante e do respectivo comprovante; não é concedido por usar Databricks no código.
